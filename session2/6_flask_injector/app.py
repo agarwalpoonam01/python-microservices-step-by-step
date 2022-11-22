@@ -31,12 +31,6 @@ def configure(binder: Binder) -> Binder:
         ItemsProvider([{"Name": "Test 1"}])
     )
  
-# def configure(binder):
-#     binder.bind(
-#         sqlite3.Connection,
-#         to=sqlite3.Connection(':memory:', check_same_thread=False),
-#         scope=singleton,
-#     )
 
 FlaskInjector(app=app, modules=[configure])
 

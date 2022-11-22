@@ -19,7 +19,7 @@ paths:
               $ref: '#/definitions/Item'
     post:
       operationId: app.add
-      summary: Post all users
+      summary: Add users
       parameters:
         - name: user
           in: body
