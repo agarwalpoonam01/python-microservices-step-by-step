@@ -1,0 +1,55 @@
+swagger: '2.0'
+info:
+  title: 'User Example API'
+  version: "0.1"
+
+basePath: /v1.0
+paths:
+  /user:
+    get:
+      operationId: api.operations.get_users
+      summary: Get all users
+      produces:
+        - application/json
+      parameters:
+        - name: result
+          in: query
+          type: string
+          pattern: "^[a-zA-Z0-9]*$"
+      responses:
+        '200':
+          description: Return response success failure
+          schema:
+            type: string
+            items:
+              $ref: '#/definitions/User'
+  /user/{name}:
+    post:
+      operationId: api.operations.add_user
+      summary: Get all users
+      parameters:
+        - name: name
+          in: path
+          type: string
+          pattern: "^[a-zA-Z0-9]*$"
+          required: true
+          description: Name of the user to be added
+      responses:
+        '200':
+          description: Return response success failure
+          schema:
+            type: string
+            items:
+              $ref: '#/definitions/User'
+definitions:
+  User:
+    type: object
+    properties:
+      id:
+        type: string
+        description: Unique identifier
+        example: "123"
+        readOnly: true
+      name:
+        type: string
+        

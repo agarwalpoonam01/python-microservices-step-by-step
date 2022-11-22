@@ -1,0 +1,33 @@
+swagger: '2.0'
+info:
+  title: Example API for db dependency injection
+  version: "1.0"
+consumes:
+  - application/json
+produces:
+  - application/json
+basePath: /v1.0
+paths:
+  /result:
+    get:
+      operationId: api.operations.get_data
+      summary: Get data
+      responses:
+        '200':
+          description: "Return response success failure"
+          schema:
+            type: string
+            items:
+              $ref: '#/definitions/Item'
+definitions:
+  Item:
+    type: object
+    properties:
+      id:
+        type: string
+        description: Unique identifier
+        example: "test"
+        readOnly: true
+      name:
+        type: string
+        
