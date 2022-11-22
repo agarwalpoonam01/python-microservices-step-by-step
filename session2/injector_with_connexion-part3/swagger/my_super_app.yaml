@@ -11,11 +11,6 @@ paths:
       summary: Get all users
       produces:
         - application/json
-      parameters:
-        - name: result
-          in: query
-          type: string
-          pattern: "^[a-zA-Z0-9]*$"
       responses:
         '200':
           description: Return response success failure
