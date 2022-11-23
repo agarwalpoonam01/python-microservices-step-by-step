@@ -4,3 +4,5 @@ pip3 install connexion
 pip3 install connexion[swagger-ui]
 pip3 install avro
 pip3 install flask_injector
+pip3 install mysql-connector-python
+pip3 install redis

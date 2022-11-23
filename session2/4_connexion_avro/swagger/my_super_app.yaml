@@ -9,7 +9,6 @@ basePath: /v1.0
 paths:
   /items/:
     get:
-      operationId: app.search
       responses:
         '200':
           description: 'Fetch a list of items'
@@ -18,8 +17,7 @@ paths:
             items:
               $ref: '#/definitions/Item'
     post:
-      operationId: app.add
-      summary: Add users
+      summary:  users
       parameters:
         - name: user
           in: body
