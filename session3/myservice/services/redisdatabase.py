@@ -4,7 +4,8 @@ from services.database import MySqlDatabase
 
 class MyRedisDB(object):
     def __init__(self):
-        self.rdb = redis.StrictRedis(host='localhost')
+        self.rdb = redis.StrictRedis(host='redis-10317.c264.ap-south-1-1.ec2.cloud.redislabs.com', port=10317,
+  password='')
         
     def connect(self):
         # TODO: implementation for a MySQL database connection
