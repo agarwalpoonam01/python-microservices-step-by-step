@@ -10,7 +10,7 @@ db = mysql.connector.connect(host='127.0.0.1',database='user_info',user='demouse
 db.cursor().execute('CREATE TABLE IF NOT EXISTS users (id int PRIMARY KEY,name varchar(50), contact varchar(50), email varchar(50))')
 cursor =  db.cursor(buffered=True)
 rdb = redis.StrictRedis(host='redis-10317.c264.ap-south-1-1.ec2.cloud.redislabs.com', port=10317,
-password='enUX68mWVpSjQjoUaQ77qGRPDPbBMR5S')
+password='')
 
 @app.route("/get_all")
 def get():
