@@ -9,12 +9,14 @@ services:
       - "80:80"
     networks:
       - frontend
+
   web:
     build: .
     container_name: mywebapp
     networks:
       - frontend
       - backend
+      
   redis:
     image: "redis"
     container_name: redis
