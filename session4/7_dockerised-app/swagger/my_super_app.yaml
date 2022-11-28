@@ -1,0 +1,87 @@
+swagger: '2.0'
+info:
+  title: Example API for db dependency injection
+  version: "1.0"
+consumes:
+  - application/json
+produces:
+  - application/json
+basePath: /v1.0
+paths:
+  /result:
+    get:
+      operationId: api.operations.get_users
+      summary: Get data
+      responses:
+        '200':
+          description: "Return response success failure"
+          schema:
+            type: string
+            items:
+              $ref: '#/definitions/Item'
+  /get_user/{userid}:
+    get:
+      operationId: api.operations.get_single_user
+      summary: Get single user
+      parameters:
+        - name: userid
+          in: path
+          type: string
+          pattern: "^[a-zA-Z0-9]*$"
+          required: true
+          description: Id of the user to be fetched
+      responses:
+        '200':
+          description: "Return response success failure"
+          schema:
+            type: string
+            items:
+              $ref: '#/definitions/Item'
+  /store_user:
+    put:
+      operationId: api.operations.store_user
+      summary: add user
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: user
+          description: User object that needs to be added.
+          required: true
+          schema:
+            $ref: '#/definitions/User'
+      responses:
+        '200':
+          description: Return response success failure
+          schema:
+            type: string
+            items:
+              $ref: '#/definitions/User'
+
+definitions:
+  Item:
+    type: object
+    properties:
+      id:
+        type: string
+        description: Unique identifier
+        example: "test"
+        readOnly: true
+      name:
+        type: string
+  User:
+    type: object
+    properties:
+      id:
+        type: integer
+        description: Unique identifier
+        #readOnly: true
+      name:
+        type: string
+      contact:
+        type: string
+      email:
+        type: string
+        

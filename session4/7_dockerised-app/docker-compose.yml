@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+  web:
+    build: .
+    container_name: mywebapp
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env.dev
+  redis:
+    image: "redis"
+    container_name: redis
+    ports:
+      - "6379:6379"
+  mariadb:
+    image: "mariadb"
+    container_name: mariadb
+    restart: always
+    volumes:
+      - ./data:/var/lib/mysql
+      - "./data/grant.sql:/docker-entrypoint-initdb.d/1.sql"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: user_db
+    ports:
+      - 3306:3306

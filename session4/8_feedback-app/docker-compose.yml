@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  feedback:
+    build: .
+    container_name: feedback
+    ports:
+      - 5001:5001
+    env_file:
+      - .env.dev
+  mongodb_container:
+    image: mongo:latest
+    container_name: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - ./data:/data/db
